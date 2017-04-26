@@ -1,4 +1,4 @@
 build:
-	docker build -t="ted/npm-slave" .
+	docker build -t="ted/node-slave" .
 
 .PHONY: build
