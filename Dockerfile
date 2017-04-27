@@ -14,8 +14,10 @@ RUN apt-get install -y software-properties-common && \
 	apt-get install -y oracle-java8-installer
 ENV JAVA_OPTS="-Dsun.jnui.encoding=UTF-8 -Dfile.encoding=UTF-8"
 
+ARG SLAVE_VERSION=3.7
+
 # get slave jar
-RUN curl --create-dirs -sSLo slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/3.7/remoting-3.7.jar \
+RUN curl --create-dirs -sSLo slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${SLAVE_VERSION}/remoting-${SLAVE_VERSION}.jar \
 	&& chmod 644 slave.jar
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
